@@ -1,11 +1,14 @@
 ---
 name: codex-cli
-description: Use Codex CLI for coding tasks with session persistence. Use when: (1) running codex exec tasks in background, (2) continuing previous Codex sessions, (3) multi-turn conversations with the same context. NOT for: simple one-liner fixes (just edit), reading code (use read tool).
+description: "Use Codex CLI for coding tasks with session persistence. Use when: (1) running codex exec tasks in background, (2) continuing previous Codex sessions, (3) multi-turn conversations with the same context. NOT for: simple one-liner fixes (just edit), reading code (use read tool)."
 metadata:
-  openclaw:
-    emoji: 🔥
-    requires:
-      anyBins: ["codex"]
+  {
+    "openclaw":
+      {
+        "emoji": "🔥",
+        "requires": { "anyBins": ["codex"] }
+      }
+  }
 ---
 
 # Codex CLI Skill
@@ -19,8 +22,6 @@ Use Codex CLI for coding tasks with session persistence.
 ```bash
 # Start Codex in background with PTY, returns sessionId
 bash pty:true background:true workdir:/path/to/project command:"codex exec 'Your task here'"
-
-# Example: returns session ID like "abc-123"
 ```
 
 ### Continue Previous Session
@@ -60,9 +61,6 @@ process action:log sessionId:XXX
 ```bash
 # Continue with new prompt
 process action:write sessionId:XXX data:"Now add authentication"
-
-# Or use codex resume directly
-codex resume <SESSION_ID> "Add authentication"
 ```
 
 ## Key Commands
